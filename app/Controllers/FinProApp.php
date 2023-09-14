@@ -13,26 +13,44 @@ class FinProApp extends BaseController
     //     //bisa pke lgsg = new model(); tp harus di define dulu namespace nya
     //     $this->profileModel = new \App\Models\ProfileModel();
     // }
+    protected $profileModel;
+    protected $dataModel;
 
+    public function __construct()
+    {
+        //bisa pke lgsg = new model(); tp harus di define dulu namespace nya
+        $this->profileModel = new \App\Models\ProfileModel();
+        $this->dataModel = new \App\Models\DataModel();
+    }
     public function index()
     {
         $data = [
             'title' => 'homepage',
-            'userInfo' => session()->get('LoggedUserProfile')
+            'userInfo' => session()->get('LoggedUserProfile'),
+            // 'grafik' => 'grafik123',
+            'recordSensor' => $this->dataModel->getSensorData()
+            // 'dataSensor' => $recordSensor
         ];
+
         echo view('content/homepage', $data);
-    }
+    }   
 
-    // public function profile()
+
+    // public function home()
     // {
-    //     $profile =  $this->profileModel->findAll();
-
+    //     $email = $this->request->getPost('email');
+    //     $password = $this->request->getPost('password');
+    //     $user_profile = $this->profileModel->where('email', $email)->first();
+    //     $session_data_profile = ['users' => $user_profile]; 
+    //     $login_session = session()->set('LoggedUserProfile', $session_data_profile);
     //     $data = [
-    //         'title' => 'profile',
-    //         'profile' => $profile
+    //         'title' => 'homepage',
+    //         'userInfo' => session()->get('LoggedUserProfile'),
+    //         // 'grafik' => 'grafik123',
+    //         'recordSensor' => $this->dataModel->getSensorData()
     //     ];
 
 
-    //     echo view('content/profile', $data);
+    //     echo view('content/homepage', $data);
     // }
 }

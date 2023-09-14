@@ -8,6 +8,10 @@ use CodeIgniter\Session\Handlers\FileHandler;
 
 class Session extends BaseConfig
 {
+    public $sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler';
+    public $sessionCookieName = 'my_session_cookie';
+    public $cache_driver = null;
+
     /**
      * --------------------------------------------------------------------------
      * Session Driver
@@ -100,5 +104,5 @@ class Session extends BaseConfig
      */
     public ?string $DBGroup = null;
 
-    public $cacheDriver          = null;
+    
 }

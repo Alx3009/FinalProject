@@ -4,11 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProfileModel extends Model
+class DataModel extends Model
 {
-    
-    protected $table      = 'profile';
-    
+    protected $table      = 'data';
     protected $primaryKey = 'id';
     protected $cache      = false;
 
@@ -18,10 +16,9 @@ class ProfileModel extends Model
     // protected $useSoftDeletes = true;
 
     protected $allowedFields = [
-        'password', 'photo', 'name', 'email', 'birth', 'mobile',
-        'address', 'job', 'nationality', 'first_intern', 'second_intern'
+        'ph', 'tds', 'temp'
     ];
-    
+
     // // Dates
     protected $useTimestamps = true;
     // protected $dateFormat    = 'datetime';
@@ -45,18 +42,13 @@ class ProfileModel extends Model
     // protected $afterFind      = [];
     // protected $beforeDelete   = [];
     // protected $afterDelete    = [];
-    public function getProfile($email)
+    public function getSensorData()
     {
-        // if ($slug == false) {
-        //     return $this->findAll();
-        // }
-
-
-
-        // echo $this->db->table('profile')
-        //     ->join('account', 'account.email=profile.email')
-        //     ->get()->getResultArray();
-
-        return $this->where(['email' => $email])->first();
+        $builder = $this->db->table('data');
+        $builder->select('*');
+        $builder->orderBy('id', 'desc');
+        $query = $builder->get();
+    
+        return $query->getRow();
     }
 }

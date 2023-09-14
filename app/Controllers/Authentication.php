@@ -55,7 +55,7 @@ class Authentication extends BaseController
                 ],
             ],
             'email' => [
-                'rules'  => 'required|valid_email|is_unique[account.email]',
+                'rules'  => 'required|valid_email|is_unique[profile.email]',
                 'errors' => [
                     'required' => 'Email is required.',
                     'valid_email' => 'Please check the Email field. It does not appear to be valid.',
@@ -165,18 +165,17 @@ class Authentication extends BaseController
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
 
-            // $user_info = $this->accModel->where('email', $email)->first();
+        
             $user_profile = $this->profileModel->where('email', $email)->first();
-            // $user_info_profile = $this->profileModel->where('email', $email)->first();
 
             $check_password = Hash::decrypt($password, $user_profile['password']);
             if (!$check_password) {
                 return  redirect()->to('authentication/signin')->with('fail', 'Incorect password.')->withInput();
             } else {
-                // $session_data = ['user' => $user_info];
+                
                 $session_data_profile = ['users' => $user_profile];
-                // session()->set('LoggedUser', $session_data);
-                session()->set('LoggedUserProfile', $session_data_profile);
+                
+                $login_session = session()->set('LoggedUserProfile', $session_data_profile);
 
                 return  redirect()->to('/');
             }
