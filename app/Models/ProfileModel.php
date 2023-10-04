@@ -8,7 +8,6 @@ class ProfileModel extends Model
 {
     
     protected $table      = 'profile';
-    
     protected $primaryKey = 'id';
     protected $cache      = false;
 

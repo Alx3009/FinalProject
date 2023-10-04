@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/style1.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
 
@@ -24,7 +25,7 @@
                             <div class="col-md-7 pe-0">
                                 <div class="form-left h-100 py-5 px-5">
                                     <form action="<?= base_url('authentication/check') ?>" method="post" autocomplete="off"" class=" row g-4">
-                                        <!-- <?php $validation = \Config\Services::validation(); ?> -->
+                                        <?php $validation = \Config\Services::validation(); ?>
                                         <?= csrf_field(); ?>
                                         <?php if (!empty(session()->getFlashdata('fail'))) : ?>
                                             <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>

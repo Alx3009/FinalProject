@@ -2,26 +2,20 @@
 
 
 <?= $this->section('content'); ?>
-
-<!-- Page Content  -->
+<!-- 
+Page Content  -->
 <!-- <div id="content" class="p-4 p-md-5 pt-5">
     <h2 class="mb-4">Homepage</h2>
-    <p>Hello <?= $userInfo['users']['name']; ?></p>
+    <p>Hello <?= $userInfo['name']; ?></p>
 
 
 
 </div> -->
-<!-- calling graphic data -->
+<!-- calling graphic data
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    $(document).ready(function(){
-        setInterval(() => {
-            $("#responsecontainer").load("<?php echo base_url('FinProApp/index'); ?>");
-        }, 1000);
-    })
-</script>
+
 
 <div id="content" class="p-4 p-md-5 pt-5">
     <div class="container">

@@ -11,3 +11,8 @@ a {
 .form-right i {
   font-size: 100px;
 }
+.custom-file-label {
+  margin-right: 15px;
+  padding-top: 0;
+  padding-bottom: 0;
+}

@@ -30,13 +30,14 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'FinProApp::index');
+$routes->get('/', 'Authentication::signin');
+$routes->get('/homepage', 'FinProApp::index');
 // $routes->get('/home', 'FinProApp::home');
 $routes->get('/content/profile', 'Profile::index');
 
 $routes->get('/content/updateprofile/(:segment)', 'Profile::updateProfile/$1');
 
-
+$routes->post('/profile/saveUpdate', 'Profile::saveUpdate');
 
 // $routes->get('/authentication/sign_in', 'Authentication::index');
 // $routes->get('/authentication/registration', 'Authentication::register');

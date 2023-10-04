@@ -14,9 +14,11 @@
                             <div class="col">
                                 <div class="card mb-3">
                                     <div class="card-body">
-
-                                        <form action="/profile/saveUpdate/<?= $userUpdate['id'] ?>" method="post">
+                                        <form action="/profile/saveUpdate/" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
+                                            <!-- <?php $validation = \Config\Services::validation(); ?> -->
+                                            <input type="hidden" class="col-sm-12" id="id" name="id" value="<?= $userUpdate['id'] ?>">
+                                            <input type="hidden" class="col-sm-12" id="email" name="email" value="<?= $userUpdate['email'] ?>">
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <!-- <p class="mb-0">Full Name</p> -->
@@ -25,6 +27,24 @@
                                                 <div class="col-sm-9">
                                                     <input type="text" class="col-sm-12" id="name" name="name" value="<?= $userUpdate['name'] ?>">
                                                 </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <label for="picture" class="form-label">Profile Photo</label>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <img src="/images/<?= $userUpdate['photo'] ?>" class=" img-thumbnail img-preview">
+                                                </div>
+                                                <div class="custom-file col-sm-7">
+                                                    <input type="hidden" name="oldphoto" value="<?= $userUpdate['photo'] ?>">
+                                                    <input type="file" class="custom-file-input <?= ($validation->hasError('photo')) ? 'is-invalid' : ''; ?>" id="photo" name="photo" onchange="preview()">
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('photo'); ?>
+                                                    </div>
+                                                    <label class="custom-file-label" for="Photo"><?= $userUpdate['photo'] ?></label>
+                                                </div>
+                                                <!-- <label class="custom-file-label" for="Photo">Choose Image</label> -->
                                             </div>
                                             <hr>
                                             <!-- <div class="row">

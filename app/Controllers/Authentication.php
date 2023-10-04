@@ -84,11 +84,12 @@ class Authentication extends BaseController
 
             return view('authentication/register', ['validation' => $this->validator]);
         } else {
+            // $default_photo = 'default.png';
             //Register user in database
             $name = $this->request->getPost('name');
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
-            $photo = $this->request->getPost('photo');
+            $photo = 'default.png';
             // $slug = $this->request->getPost('birth');
             $birth = $this->request->getPost('birth');
             $mobile = $this->request->getPost('mobile');
@@ -177,7 +178,7 @@ class Authentication extends BaseController
                 
                 $login_session = session()->set('LoggedUserProfile', $session_data_profile);
 
-                return  redirect()->to('/');
+                return  redirect()->to('/homepage');
             }
         }
     }

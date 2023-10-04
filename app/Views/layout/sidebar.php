@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/style1.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     
 </head>
@@ -25,13 +26,13 @@
             </div>
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
                 <div class="user-logo">
-                    <div class="img" style="background-image: url(<?php echo base_url() ?>images/IMG_2107.jpg);"></div>
-                    <h3>Tito Alexsta</h3>
+                    <div class="img" style="background-image: url(<?php echo base_url() ?>images/<?= $userInfo['photo'] ?>);"></div>
+                    <h3><?= $userInfo['name'] ?></h3>
                 </div>
             </div>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
-                    <a href="<?= base_url('/'); ?>"><span class="fa fa-home mr-3"></span> Home</a>
+                    <a href="<?= base_url('/homepage'); ?>"><span class="fa fa-home mr-3"></span> Home</a>
                 </li>
                 <li>
                     <a href="<?= base_url('/content/profile'); ?>"><span class="fa fa-download mr-3 notif"></span> Profile</a>
@@ -61,9 +62,65 @@
 
 
         <script src="<?php echo base_url() ?>js/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="<?php echo base_url() ?>js/popper.js"></script>
-        <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
+        <!-- <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script> -->
         <script src="<?php echo base_url() ?>js/main.js"></script>
+        <script>
+            function preview(){
+                const foto = document.querySelector('#photo');
+                const fotoLabel = document.querySelector('.custom-file-label');
+                const imgPreview = document.querySelector('.img-preview');
+
+                fotoLabel.textContent = foto.files[0].name;
+
+                const fileFoto = new FileReader();
+                fileFoto.readAsDataURL(foto.files[0]);
+
+                fileFoto.onload = function (e){
+                    imgPreview.src = e.target.result;
+                }
+            }
+        </script>
+        <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> -->
+        <script>
+            $(document).ready(function(){
+                setInterval(() => {
+                //     location.reload();
+                // }, 2000)
+                //     $("#responsecontainer").empty(); // Clear previous content
+                //     $("#responsecontainer").load("<?php echo base_url('/homepage'); ?>");
+                // }, 5000);
+            })
+        </script>
+        <!-- // <script>
+        //     $(document).ready(function(){
+        //         setInterval(() => {
+        //             // Create a new XMLHttpRequest object
+        //             var xhr = new XMLHttpRequest();
+
+        //             // Define the URL you want to make a request to (replace with your HTTPS URL)
+        //             var url = "http://localhost:8080/homepage";
+
+        //             // Configure the request
+        //             xhr.open("GET", url, true);
+
+        //             // Define a callback function to handle the response
+        //             xhr.onreadystatechange = function() {
+        //                 if (xhr.readyState === 4 && xhr.status === 200) {
+        //                     // Handle the successful response here
+        //                     // The response content is available in xhr.responseText
+        //                     // You can update your #responsecontainer with the new content as needed
+        //                     document.getElementById("responsecontainer").innerHTML = xhr.responseText;
+        //                 }
+        //             };
+
+        //             // Send the request
+        //             xhr.send();
+
+        //         }, 5000);
+        //     });
+        // </script> -->
     </div>
 
 </body>

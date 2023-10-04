@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\ProfileModel;
+use App\Libraries\Hash;
 //use \App\Models\ProfileModel; ->inibuat define namespace
 
 class Profile extends BaseController
@@ -16,97 +17,75 @@ class Profile extends BaseController
 
     public function index()
     {   
-        // $newName = $this->request->getPost('name');
-        // // $newEmail = $this->request->getPost('email');
-        // $newBirth = $this->request->getPost('birth');
-        // $newMobile = $this->request->getPost('mobile');
-        // $newAddress = $this->request->getPost('address');
-        // $newJob = $this->request->getPost('job');
-        // $newNationality = $this->request->getPost('nationality');
-        // $newFirstIntern = $this->request->getPost('first_intern');
-        // $newSecondIntern = $this->request->getPost('second_intern');
-
-        // $user_profile = $this->profileModel->where('email', session()->get('email'))->first();
-       
-        // if ($user_profile) {
-        //     $userData = $user_profile;
-        // } else {
-        //     $userData = [
-        //         'name' => $newName,
-        //         'birth' => $newBirth,
-        //         'mobile' => $newMobile,
-        //         'address' => $newAddress,
-        //         'job' => $newJob,
-        //         'nationality' => $newNationality,
-        //         'first_intern' => $newFirstIntern,
-        //         'second_intern' => $newSecondIntern,
-        //     ];
-        // }
-        
-        // session()->set('LoggedUserProfile', $userData);
+        $sessionData = session('LoggedUserProfile');
         $data = [
             'title' => 'profile',
-            'userProfile' => session()->get('LoggedUserProfile')
+            'userInfo' => $this->profileModel->getProfile($sessionData['users']['email']),
+            //'userProfile' => session()->get('LoggedUserProfile')
+            'userProfile' => $this->profileModel->getProfile($sessionData['users']['email']),
         ];
             
         echo view('content/profile', $data);
     }
 
-    // public function updatedIndex()
-    // {
-    //     session()->remove('LoggedUserProfile');
-
-    //     $user_profile = $this->profileModel->where('email', $email)->first();
-    //     $session_data_profile = ['users' => $user_profile];
-    //     $login_session = session()->set('LoggedUserProfile', $session_data_profile);
-
-    //         $data = [
-    //             'title' => 'profile',
-    //             // 'profile' => $this->profileModel->getProfile(),
-    //             // 'profile' => $this->profileModel->getProfile($email),
-    //             'userProfile' => session()->get('LoggedUserProfile')
-    //         ];
-            
-    //         echo view('content/profile', $data);
-    // }
-
     public function updateProfile($email)
-    {
-    
+    {   
+        $sessionData = session('LoggedUserProfile');
         $data = [
             'title' => 'updateprofile',
+            'userInfo' => $this->profileModel->getProfile($sessionData['users']['email']),
             'userUpdate' => $this->profileModel->getProfile($email)
         ];
 
         echo view('content/updateprofile', $data);
     }
     //ci will detect $id parameter as update command
-    public function saveUpdate($id)
+    public function saveUpdate()
     {
+        if(!$this->validate([
+            'photo' => [
+                'rules'  => 'max_size[photo,2048]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'The file is must be under 2MB.',
+                    'is_image' => 'The file must be in .jpg .jpeg .png',
+                    'mime_in'  => 'The file must be in .jpg .jpeg .png'
 
-        $this->profileModel->save([
-            'id' => $id,
+                ],
+            ]
+            ])){
+            // $validation = \Config\Services::validation();
+            // return redirect()->to('/content/updateprofile/' . $this->request->getVar('email'))->withInput()->with('validation', $this->validator);
+            return redirect()->to('/content/updateprofile/' . $this->request->getVar('email'))->withInput();
+        }
+        // $sessionData = session('LoggedUserProfile');
+        //cek apakah gambar lama
+        $fileFoto = $this->request->getFile('photo'); 
+        if($fileFoto->getError() == 4 ){
+            $namaFoto = $this->request->getVar('oldphoto');
+        }else{
+            //generate random file name
+            $namaFoto = $fileFoto->getRandomName();
+            //simpan gambar
+            $fileFoto->move('images', $namaFoto);
+            //hapus foto lama
+            unlink('images/' .$this->request->getVar('oldphoto'));
+        }
+        $data = [
             'name' => $this->request->getVar('name'),
-            // 'email' => $this->request->getVar('email'),
+            'email' => $this->request->getVar('email'),
             'birth' => $this->request->getVar('birth'),
+            'photo' => $namaFoto,
             'mobile' => $this->request->getVar('mobile'),
             'address' => $this->request->getVar('address'),
             'job' => $this->request->getVar('job'),
             'nationality' => $this->request->getVar('nationality'),
             'first_intern' => $this->request->getVar('first_intern'),
             'second_intern' => $this->request->getVar('second_intern')
-        ]);
-        // $email = $this->request->getPost('email');
-        // $user_profile = $this->profileModel->where('email', $email)->first();
-        // $session_data_profile = ['users' => $user_profile];
-
-        // session()->setFlashdata('pesan', 'successfuly updated');
-        // $login_session = session()->set('LoggedUserProfile', $session_data_profile);
-        // Assuming $updatedUserData contains the updated user data
-        // $currentData = session()->get('LoggedUserProfile');
-        // $currentData = $updatedUserData;
-        // session()->set('LoggedUserProfile', $currentData);
-
+        ];
+        
+        $id = $this->request->getVar('id'); 
+        $this->profileModel->update($id, $data);
+        session()->setFlashdata('pesan', 'successfuly updated');
         return redirect()->to('/content/profile');
     }
 }

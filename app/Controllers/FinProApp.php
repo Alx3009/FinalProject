@@ -24,16 +24,26 @@ class FinProApp extends BaseController
     }
     public function index()
     {
+        $sessionData = session('LoggedUserProfile');
         $data = [
             'title' => 'homepage',
-            'userInfo' => session()->get('LoggedUserProfile'),
+            'userInfo' => $this->profileModel->getProfile($sessionData['users']['email']),
             // 'grafik' => 'grafik123',
             'recordSensor' => $this->dataModel->getSensorData()
             // 'dataSensor' => $recordSensor
         ];
 
+        // $side_bar = $this->sidebar();
+
         echo view('content/homepage', $data);
     }   
+
+    // public function sidebar()
+    // {
+    //     $data = [
+    //         'userProfile' => $this->profileModel->getProfile($sessionData['users']['email']),
+    //     ];
+    // }   
 
 
     // public function home()
