@@ -32,6 +32,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Authentication::signin');
 $routes->get('/homepage', 'FinProApp::index');
+$routes->get('/phvalue', 'FinProApp::phSensor');
+$routes->get('/ppmvalue', 'FinProApp::ppmSensor');
+$routes->get('/tempvalue', 'FinProApp::tempSensor');
 // $routes->get('/home', 'FinProApp::home');
 $routes->get('/content/profile', 'Profile::index');
 

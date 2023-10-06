@@ -16,7 +16,7 @@ Page Content  -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
 
-
+<?php $this->renderSection('content'); ?>
 <div id="content" class="p-4 p-md-5 pt-5">
     <div class="container">
         <div class="row">
@@ -24,9 +24,10 @@ Page Content  -->
                 <h2 class="mb-4">Homepage</h2>
                 <section style="background-color: #eee;">
                     <div class="container py-5" id="responsecontainer">
-                        <div><?= $recordSensor->ph ?></div>
-                        <div><?= $recordSensor->ppm ?></div>
-                        <div><?= $recordSensor->temp ?></div>
+                        <div id="phlevel"></div>
+                        <div id="ppmlevel"></div>
+                        <div id="templevel"></div>
+    
                     </div>
                 </section>
             </div>

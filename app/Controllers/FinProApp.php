@@ -37,30 +37,36 @@ class FinProApp extends BaseController
 
         echo view('content/homepage', $data);
     }   
+    public function phSensor()
+    {
+        $data = [
+            'title' => 'phSensor',
+            'recordSensor' => $this->dataModel->getSensorData()
+    
+        ];
 
-    // public function sidebar()
-    // {
-    //     $data = [
-    //         'userProfile' => $this->profileModel->getProfile($sessionData['users']['email']),
-    //     ];
-    // }   
+        echo view('sensor/ph', $data);
+    }  
+    public function ppmSensor()
+    {
+        $data = [
+            'title' => 'ppmSensor',
+            'recordSensor' => $this->dataModel->getSensorData()
+    
+        ];
 
+        echo view('sensor/ppm', $data);
+    } 
+    public function tempSensor()
+    {
+        $data = [
+            'title' => 'ppmSensor',
+            'recordSensor' => $this->dataModel->getSensorData()
+    
+        ];
 
-    // public function home()
-    // {
-    //     $email = $this->request->getPost('email');
-    //     $password = $this->request->getPost('password');
-    //     $user_profile = $this->profileModel->where('email', $email)->first();
-    //     $session_data_profile = ['users' => $user_profile]; 
-    //     $login_session = session()->set('LoggedUserProfile', $session_data_profile);
-    //     $data = [
-    //         'title' => 'homepage',
-    //         'userInfo' => session()->get('LoggedUserProfile'),
-    //         // 'grafik' => 'grafik123',
-    //         'recordSensor' => $this->dataModel->getSensorData()
-    //     ];
+        echo view('sensor/temp', $data);
+    }   
 
-
-    //     echo view('content/homepage', $data);
-    // }
+    
 }

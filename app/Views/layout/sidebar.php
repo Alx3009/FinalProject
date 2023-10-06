@@ -89,8 +89,10 @@
                 //     location.reload();
                 // }, 2000)
                 //     $("#responsecontainer").empty(); // Clear previous content
-                //     $("#responsecontainer").load("<?php echo base_url('/homepage'); ?>");
-                // }, 5000);
+                    $("#phlevel").load("<?php echo base_url('/phvalue'); ?>");
+                    $("#ppmlevel").load("<?php echo base_url('/ppmvalue'); ?>");
+                    $("#templevel").load("<?php echo base_url('/tempvalue'); ?>");
+                }, 1000);
             })
         </script>
         <!-- // <script>

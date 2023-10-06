@@ -59,16 +59,19 @@ class Profile extends BaseController
         }
         // $sessionData = session('LoggedUserProfile');
         //cek apakah gambar lama
-        $fileFoto = $this->request->getFile('photo'); 
+        $fileFoto = $this->request->getFile('photo');
+        $fileLama = $this->request->getFile('oldphoto');
         if($fileFoto->getError() == 4 ){
             $namaFoto = $this->request->getVar('oldphoto');
         }else{
+            // //hapus foto lama
+            // if(!($this->request->getFile('oldphoto') == 'default.png')){
+            //     unlink('images/' .$this->request->getVar('oldphoto'));
+            // }
             //generate random file name
             $namaFoto = $fileFoto->getRandomName();
             //simpan gambar
             $fileFoto->move('images', $namaFoto);
-            //hapus foto lama
-            unlink('images/' .$this->request->getVar('oldphoto'));
         }
         $data = [
             'name' => $this->request->getVar('name'),
