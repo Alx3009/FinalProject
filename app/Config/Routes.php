@@ -40,6 +40,7 @@ $routes->get('/content/profile', 'Profile::index');
 
 $routes->get('/content/updateprofile/(:segment)', 'Profile::updateProfile/$1');
 
+$routes->get('/homepage/FinProApp/sendData/(:segment)/(:segment)', 'FinProApp::sendData/$1/$2');
 $routes->post('/profile/saveUpdate', 'Profile::saveUpdate');
 
 // $routes->get('/authentication/sign_in', 'Authentication::index');

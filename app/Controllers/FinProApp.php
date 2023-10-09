@@ -15,12 +15,16 @@ class FinProApp extends BaseController
     // }
     protected $profileModel;
     protected $dataModel;
+    // public $uri;
+
 
     public function __construct()
     {
         //bisa pke lgsg = new model(); tp harus di define dulu namespace nya
         $this->profileModel = new \App\Models\ProfileModel();
         $this->dataModel = new \App\Models\DataModel();
+        // $this->uri = service('uri');
+        
     }
     public function index()
     {
@@ -67,6 +71,24 @@ class FinProApp extends BaseController
 
         echo view('sensor/temp', $data);
     }   
+
+    public function sendData($ppm, $temperature)
+    {
+        
+        
+        // $ppm = $this->request->getUri(3);
+        // $temperature = $this->request->getUri(4);
+        // // $ppm = $this->uri->segment(3);
+        // // $temperature = $this->uri->segment(4);
+        
+
+        $data = [
+            'ppm' => $ppm,
+            'temp' => $temperature,
+        ];
+        
+        $this->dataModel->updateSensorData($data);
+    }
 
     
 }

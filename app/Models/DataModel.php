@@ -51,4 +51,10 @@ class DataModel extends Model
     
         return $query->getRow();
     }
+
+    public function updateSensorData($data)
+    {
+        $builder = $this->db->table('data');
+        $builder->update($data);
+    }
 }
