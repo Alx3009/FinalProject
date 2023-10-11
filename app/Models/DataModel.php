@@ -54,6 +54,7 @@ class DataModel extends Model
 
     public function updateSensorData($data)
     {
+        // $sensor_value = $_GET['sensor'];
         $builder = $this->db->table('data');
         $builder->update($data);
     }
