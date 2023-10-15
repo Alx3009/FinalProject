@@ -24,7 +24,7 @@
                         <div class="row">
                             <div class="col-md-7 pe-0">
                                 <div class="form-left h-100 py-5 px-5">
-                                    <form action="<?= base_url('authentication/check') ?>" method="post" autocomplete="off"" class=" row g-4">
+                                    <form action="<?= base_url('authentication/check') ?>" method="post" autocomplete="off" class=" row g-4">
                                         <?php $validation = \Config\Services::validation(); ?>
                                         <?= csrf_field(); ?>
                                         <?php if (!empty(session()->getFlashdata('fail'))) : ?>
@@ -57,20 +57,20 @@
                                         </div>
 
                                         <div class="col-sm-6 mt-3">
-                                            <a href="<?= site_url('authentication/register') ?>" class="float-end text-primary">Sign Up</a>
+                                            <a href="<?= site_url('authentication/register') ?>" class="float-end text-success">Sign Up</a>
                                         </div>
 
                                         <div class="col-12">
-                                            <button type="submit" class="btn btn-primary px-4 float-end mt-4" value="sign_in">Sign In</button>
+                                            <button type="submit" class="btn btn-success px-4 float-end mt-4" value="sign_in">Sign In</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-md-5 ps-0 d-none d-md-block">
+                            <div class="my-auto">
                                 <!-- <div class="form-right h-100 text-white text-center pt-5"> -->
                                 <!-- <i class="bi bi-bootstrap"></i> -->
 
-                                <div class="img" style="background-image: url(<?php echo base_url() ?>images/iot.svg);"></div>
+                                <div class="img"><img src="<?php echo base_url() ?>images/presidentlogo.png"></div>
 
                                 <!-- </div> -->
                             </div>
@@ -80,6 +80,13 @@
             </div>
         </div>
     </div>
+    <footer class="text-center text-white" style="background-color: #02353c;">
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+        © Smart Hydroponics: An IoT-Enabled Water Quality Monitoring System :
+        <a class="text-white" href="https://mdbootstrap.com/">Tito Alexsta</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 </body>
 
 </html>

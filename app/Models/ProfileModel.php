@@ -18,7 +18,8 @@ class ProfileModel extends Model
 
     protected $allowedFields = [
         'password', 'photo', 'name', 'email', 'birth', 'mobile',
-        'address', 'job', 'nationality', 'first_intern', 'second_intern'
+        'address', 'job', 'nationality', 'instagram', 'wa',
+        'github', 'linkedin', 'about'
     ];
     
     // // Dates

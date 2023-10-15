@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/style1.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
 
@@ -53,7 +54,7 @@
                                             <label>Password<span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                                                <input type="text" class="form-control" name="password" placeholder="Enter Password.." value="<?= set_value('password') ?>">
+                                                <input type="password" class="form-control" name="password" placeholder="Enter Password.." value="<?= set_value('password') ?>">
                                                 <small class=" text-danger"><?= isset($validation) ? display_error($validation, 'password') : '' ?></small>
                                             </div>
                                         </div>
@@ -62,7 +63,7 @@
                                             <label>Confirm Password<span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                                                <input type="text" class="form-control" name="cpassword" placeholder="Enter Password.." value="<?= set_value('cpassword') ?>">
+                                                <input type="password" class="form-control" name="cpassword" placeholder="Enter Password.." value="<?= set_value('cpassword') ?>">
                                                 <small class=" text-danger"><?= isset($validation) ? display_error($validation, 'cpassword') : '' ?></small>
                                             </div>
                                         </div>
@@ -83,20 +84,20 @@
                                         <input type="hidden" class="form-control" name="first_intern" placeholder="" value="<?= set_value('first_intern') ?>">
                                         <input type="hidden" class="form-control" name="second_intern" placeholder="" value="<?= set_value('second_intern') ?>">
                                         <div class="col-sm-6 mt-3">
-                                            <a href="<?= site_url('authentication/signin') ?>" class="float-end text-primary">I already have account</a>
+                                            <a href="<?= site_url('authentication/signin') ?>" class="float-end text-success">I already have account</a>
                                         </div>
 
                                         <div class="col-12">
-                                            <button type="submit" class="btn btn-primary px-4 float-end mt-4" value="sign_up">Sign Up</button>
+                                            <button type="submit" class="btn btn-success px-4 float-end mt-4" value="sign_up">Sign Up</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-md-5 ps-0 d-none d-md-block">
+                            <div class="my-auto">
                                 <!-- <div class="form-right h-100 text-white text-center pt-5"> -->
                                 <!-- <i class="bi bi-bootstrap"></i> -->
 
-                                <div class="img" style="background-image: url(<?php echo base_url() ?>images/iot.svg);"></div>
+                                <div class="img"><img src="<?php echo base_url() ?>images/presidentlogo.png"></div>
 
                                 <!-- </div> -->
                             </div>
@@ -106,6 +107,13 @@
             </div>
         </div>
     </div>
+    <footer class="text-center text-white" style="background-color: #02353c;">
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+        © Smart Hydroponics: An IoT-Enabled Water Quality Monitoring System :
+        <a class="text-white" href="https://mdbootstrap.com/">Tito Alexsta</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 </body>
 
 </html>

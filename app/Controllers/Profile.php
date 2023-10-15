@@ -82,8 +82,11 @@ class Profile extends BaseController
             'address' => $this->request->getVar('address'),
             'job' => $this->request->getVar('job'),
             'nationality' => $this->request->getVar('nationality'),
-            'first_intern' => $this->request->getVar('first_intern'),
-            'second_intern' => $this->request->getVar('second_intern')
+            'instagram' => $this->request->getVar('instagram'),
+            'wa' => $this->request->getVar('whatsapp'),
+            'github' => $this->request->getVar('github'),
+            'linkedin' => $this->request->getVar('linkedin'),
+            'about' => $this->request->getVar('about'),
         ];
         
         $id = $this->request->getVar('id'); 

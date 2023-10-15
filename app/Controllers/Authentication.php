@@ -91,13 +91,22 @@ class Authentication extends BaseController
             $password = $this->request->getPost('password');
             $photo = 'default.png';
             // $slug = $this->request->getPost('birth');
-            $birth = $this->request->getPost('birth');
-            $mobile = $this->request->getPost('mobile');
-            $address = $this->request->getPost('address');
-            $job = $this->request->getPost('job');
-            $nationality = $this->request->getPost('nationality');
-            $first_intern = $this->request->getPost('first_intern');
-            $second_intern = $this->request->getPost('second_intern');
+            $birth = '';
+            $mobile = '';
+            $address = '';
+            $job = '';
+            $nationality = '';
+            $instagram = '';
+            // $birth = $this->request->getPost('birth');
+            // $mobile = $this->request->getPost('mobile');
+            // $address = $this->request->getPost('address');
+            // $job = $this->request->getPost('job');
+            // $nationality = $this->request->getPost('nationality');
+            // $instagram = '';
+            $whatsapp = '';
+            $github = '';
+            $linkedin = '';
+            $about = '';
 
             $values = [
                 'name' => $name,
@@ -110,9 +119,11 @@ class Authentication extends BaseController
                 'address' => $address,
                 'job' => $job,
                 'nationality' => $nationality,
-                'first_intern' => $first_intern,
-                'second_intern' => $second_intern,
-
+                'instagram' => $instagram,
+                'wa' => $whatsapp,
+                'github' => $github,
+                'linkedin' => $linkedin,
+                'about' => $about
             ];
 
 

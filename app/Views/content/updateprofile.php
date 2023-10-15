@@ -2,12 +2,12 @@
 
 
 <?= $this->section('content'); ?>
-<div id="content" class="p-4 p-md-5 pt-5">
+<div id="content" class="p-4 p-md-5 pt-5" style="background-color: #eee;">
     <div class="container">
         <div class="row">
             <div class="col">
                 <h2 class="mb-4">Update Profile</h2>
-                <section style="background-color: #eee;">
+                <section>
                     <div class="container py-5">
 
                         <div class="row">
@@ -103,21 +103,49 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <label for="internship" class="">Internship</label>
+                                                    <label for="instagram" class="">Instagram</label>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-12" id="first_intern" name="first_intern" value="<?= $userUpdate['first_intern']; ?>">
+                                                    <input type="text" class="col-sm-12" id="instagram" name="instagram" value="<?= $userUpdate['instagram']; ?>">
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <label for="internship" class="">Internship</label>
+                                                    <label for="whatsapp" class="">WhatsApp</label>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-12" id="second_intern" name="second_intern" value="<?= $userUpdate['second_intern']; ?>">
+                                                    <input type="text" class="col-sm-12" id="whatsapp" name="whatsapp" value="<?= $userUpdate['wa']; ?>">
                                                 </div>
                                             </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <label for="github" class="">Github</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="col-sm-12" id="github" name="github" value="<?= $userUpdate['github']; ?>">
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <label for="linkedin" class="">Linkedin</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="col-sm-12" id="linkedin" name="linkedin" value="<?= $userUpdate['linkedin']; ?>">
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <label for="about" class="">About Me</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control col-sm-12" rows="3" id="about" name="about" value="<?= $userUpdate['about']; ?>"></textarea>
+                                                </div>
+                                            </div>
+                                            <hr>
                                             <div class="d-flex justify-content-center mb-4 mt-4">
                                                 <!-- <a class="btn btn-outline-primary ms-1 mt-4" href="/">Save</a> -->
 

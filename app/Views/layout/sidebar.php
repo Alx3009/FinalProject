@@ -21,7 +21,7 @@
         <nav id="sidebar">
 
             <div class="custom-menu">
-                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                <button type="button" id="sidebarCollapse" class="btn btn-success">
                 </button>
             </div>
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
@@ -34,11 +34,11 @@
                 <li class="active">
                     <a href="<?= base_url('/homepage'); ?>"><span class="fa fa-home mr-3"></span> Home</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<?= base_url('/content/profile'); ?>"><span class="fa fa-download mr-3 notif"></span> Profile</a>
                     <!-- <small class="d-flex align-items-center justify-content-center">5</small>  ini buat notif -->
                 </li>
-                <li>
+                <li class="active">
                     <a href="#"><span class="fa fa-gift mr-3"></span>Convert</a>
                 </li>
                 <!-- <li>
@@ -50,7 +50,7 @@
                 <li>
                     <a href="#"><span class="fa fa-support mr-3"></span> Support</a>
                 </li> -->
-                <li>
+                <li class="active">
                     <a href="<?= base_url('authentication/logout') ?>"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
                 </li>
             </ul>
@@ -59,7 +59,6 @@
 
         <!-- for display the content  -->
         <?php $this->renderSection('content'); ?>
-
 
         <script src="<?php echo base_url() ?>js/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -124,7 +123,13 @@
         //     });
         // </script> -->
     </div>
-
 </body>
+<footer class="text-center text-white" style="background-color: #02353c;">
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+        © Smart Hydroponics: An IoT-Based Water Quality Monitoring System for Hydroponics -
+        <a class="text-white" href="https://mdbootstrap.com/">Tito Alexsta</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 
 </html>
