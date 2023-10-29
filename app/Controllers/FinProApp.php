@@ -15,6 +15,7 @@ class FinProApp extends BaseController
     // }
     protected $profileModel;
     protected $dataModel;
+    protected $graphicModel;
     // public $uri;
 
 
@@ -23,7 +24,7 @@ class FinProApp extends BaseController
         //bisa pke lgsg = new model(); tp harus di define dulu namespace nya
         $this->profileModel = new \App\Models\ProfileModel();
         $this->dataModel = new \App\Models\DataModel();
-        // $this->uri = service('uri');
+        $this->graphicModel = new \App\Models\GraphicModel();
         
     }
     public function index()
@@ -32,12 +33,11 @@ class FinProApp extends BaseController
         $data = [
             'title' => 'homepage',
             'userInfo' => $this->profileModel->getProfile($sessionData['users']['email']),
-            // 'grafik' => 'grafik123',
-            'recordSensor' => $this->dataModel->getSensorData()
-            // 'dataSensor' => $recordSensor
-        ];
+            
+            'recordSensor' => $this->dataModel->getSensorData(),
 
-        // $side_bar = $this->sidebar();
+            
+        ];
 
         echo view('content/homepage', $data);
     }   
@@ -58,7 +58,7 @@ class FinProApp extends BaseController
             'recordSensor' => $this->dataModel->getSensorData()
     
         ];
-
+    
         echo view('sensor/ppm', $data);
     } 
     public function tempSensor()
@@ -72,7 +72,7 @@ class FinProApp extends BaseController
         echo view('sensor/temp', $data);
     }   
 
-    public function sendData($ppm, $temperature)
+    public function sendData($tds, $temperature)
     {
         
         
@@ -81,14 +81,55 @@ class FinProApp extends BaseController
         // // $ppm = $this->uri->segment(3);
         // // $temperature = $this->uri->segment(4);
         
-
+        $sessionData = session('LoggedUserProfile');
         $data = [
-            'ppm' => $ppm,
+            'tds' => $tds,
             'temp' => $temperature,
+            'email' => $this->profileModel->getProfile($sessionData['users']['email'])
         ];
         
         $this->dataModel->updateSensorData($data);
+        $this->graphicModel->insertSensorData($data);
     }
+    // public function dateChart()
+    // {
+    //     $data = [
+    //         'title' => 'dateChart',
+    //         'recordSensor' => $this->graphicModel->getDate()
+    
+    //     ];
 
+    //     echo view('sensor/datechart', $data);
+    // } 
+    public function tempChart()
+    {
+        $data = [
+            'title' => 'tempChart',
+            'recordSensor' => $this->graphicModel->getTemp()
+    
+        ];
+
+        echo view('sensor/tempchart', $data);
+    } 
+    public function tdsChart()
+    {
+        $data = [
+            'title' => 'tdsChart',
+            'recordSensor' => $this->graphicModel->getTds()
+    
+        ];
+
+        echo view('sensor/tdschart', $data);
+    } 
+    public function phChart()
+    {
+        $data = [
+            'title' => 'phChart',
+            'recordSensor' => $this->graphicModel->getPh()
+    
+        ];
+
+        echo view('sensor/phchart', $data);
+    }
     
 }

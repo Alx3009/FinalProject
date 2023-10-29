@@ -84,25 +84,17 @@ class Authentication extends BaseController
 
             return view('authentication/register', ['validation' => $this->validator]);
         } else {
-            // $default_photo = 'default.png';
             //Register user in database
             $name = $this->request->getPost('name');
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
             $photo = 'default.png';
-            // $slug = $this->request->getPost('birth');
             $birth = '';
             $mobile = '';
             $address = '';
             $job = '';
             $nationality = '';
             $instagram = '';
-            // $birth = $this->request->getPost('birth');
-            // $mobile = $this->request->getPost('mobile');
-            // $address = $this->request->getPost('address');
-            // $job = $this->request->getPost('job');
-            // $nationality = $this->request->getPost('nationality');
-            // $instagram = '';
             $whatsapp = '';
             $github = '';
             $linkedin = '';

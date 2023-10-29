@@ -1,3 +1,3 @@
 <?php 
-echo $recordSensor->ppm;
+echo $recordSensor->tds;
 ?>

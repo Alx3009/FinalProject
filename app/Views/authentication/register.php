@@ -93,7 +93,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="my-auto">
+                            <div class="my-auto mx-4">
                                 <!-- <div class="form-right h-100 text-white text-center pt-5"> -->
                                 <!-- <i class="bi bi-bootstrap"></i> -->
 

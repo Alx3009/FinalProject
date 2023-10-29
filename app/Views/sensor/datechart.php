@@ -1,0 +1,3 @@
+<?php 
+echo $recordSensor->date;
+?>

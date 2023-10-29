@@ -6,7 +6,14 @@ a {
   height: 95vh;
   display: flex;
   align-items: center;
+  background: url(/images/hydroponicgede.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }
+/* #content {
+  background: url(/images/hydroponicgede.jpg);
+  background-size: cover;
+} */
 .form-right i {
   font-size: 100px;
 }
@@ -27,3 +34,15 @@ a {
 /* .wrapper {
   height: 96vh;
 } */
+#tempchartline,
+#tdschartline,
+#phchartline {
+  margin-top: 60px;
+}
+/* #tdschartline {
+  margin-top: 60px;
+} */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}

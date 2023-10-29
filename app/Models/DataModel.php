@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class DataModel extends Model
 {
-    protected $table      = 'data';
+    protected $table      = 'data_sensor';
     protected $primaryKey = 'id';
     protected $cache      = false;
 
@@ -44,7 +44,7 @@ class DataModel extends Model
     // protected $afterDelete    = [];
     public function getSensorData()
     {
-        $builder = $this->db->table('data');
+        $builder = $this->db->table('data_sensor');
         $builder->select('*');
         $builder->orderBy('id', 'desc');
         $query = $builder->get();
@@ -55,7 +55,8 @@ class DataModel extends Model
     public function updateSensorData($data)
     {
         // $sensor_value = $_GET['sensor'];
-        $builder = $this->db->table('data');
+        $builder = $this->db->table('data_sensor');
         $builder->update($data);
     }
+    
 }

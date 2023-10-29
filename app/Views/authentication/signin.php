@@ -49,14 +49,14 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-6 mt-3">
+                                        <!-- <div class="col-sm-6 mt-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="inlineFormCheck">
                                                 <label class="form-check-label" for="inlineFormCheck">Remember me</label>
                                             </div>
-                                        </div>
+                                        </div> -->
 
-                                        <div class="col-sm-6 mt-3">
+                                        <div class="col-sm-12 mt-3">
                                             <a href="<?= site_url('authentication/register') ?>" class="float-end text-success">Sign Up</a>
                                         </div>
 
@@ -64,15 +64,12 @@
                                             <button type="submit" class="btn btn-success px-4 float-end mt-4" value="sign_in">Sign In</button>
                                         </div>
                                     </form>
+                                    
                                 </div>
+                                
                             </div>
-                            <div class="my-auto">
-                                <!-- <div class="form-right h-100 text-white text-center pt-5"> -->
-                                <!-- <i class="bi bi-bootstrap"></i> -->
-
-                                <div class="img"><img src="<?php echo base_url() ?>images/presidentlogo.png"></div>
-
-                                <!-- </div> -->
+                            <div class="col-md-5 my-auto">
+                                <img src="<?php echo base_url() ?>images/presidentlogo.png">
                             </div>
                         </div>
                     </div>

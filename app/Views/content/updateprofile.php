@@ -2,7 +2,7 @@
 
 
 <?= $this->section('content'); ?>
-<div id="content" class="p-4 p-md-5 pt-5" style="background-color: #eee;">
+<div id="content" class="p-4 p-md-5 pt-5" style="background: rgba(67, 147, 66, .7);">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -142,7 +142,7 @@
                                                     <label for="about" class="">About Me</label>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <textarea class="form-control col-sm-12" rows="3" id="about" name="about" value="<?= $userUpdate['about']; ?>"></textarea>
+                                                    <textarea class="form-control col-sm-12" rows="3" id="about" name="about"><?= $userUpdate['about']; ?></textarea>
                                                 </div>
                                             </div>
                                             <hr>

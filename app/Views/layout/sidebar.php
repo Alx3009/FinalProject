@@ -62,9 +62,12 @@
 
         <script src="<?php echo base_url() ?>js/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
         <script src="<?php echo base_url() ?>js/popper.js"></script>
         <!-- <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script> -->
         <script src="<?php echo base_url() ?>js/main.js"></script>
+
+        <!-- script for image preview in update profile -->
         <script>
             function preview(){
                 const foto = document.querySelector('#photo');
@@ -81,7 +84,7 @@
                 }
             }
         </script>
-        <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> -->
+        <!-- script for realtime sensor data -->
         <script>
             $(document).ready(function(){
                 setInterval(() => {
@@ -94,34 +97,15 @@
                 }, 1000);
             })
         </script>
-        <!-- // <script>
-        //     $(document).ready(function(){
-        //         setInterval(() => {
-        //             // Create a new XMLHttpRequest object
-        //             var xhr = new XMLHttpRequest();
-
-        //             // Define the URL you want to make a request to (replace with your HTTPS URL)
-        //             var url = "http://localhost:8080/homepage";
-
-        //             // Configure the request
-        //             xhr.open("GET", url, true);
-
-        //             // Define a callback function to handle the response
-        //             xhr.onreadystatechange = function() {
-        //                 if (xhr.readyState === 4 && xhr.status === 200) {
-        //                     // Handle the successful response here
-        //                     // The response content is available in xhr.responseText
-        //                     // You can update your #responsecontainer with the new content as needed
-        //                     document.getElementById("responsecontainer").innerHTML = xhr.responseText;
-        //                 }
-        //             };
-
-        //             // Send the request
-        //             xhr.send();
-
-        //         }, 5000);
-        //     });
-        // </script> -->
+        <!-- ph chart line  -->
+        <script>
+            var refreshid = setInterval(() => {
+                // $('#datechartline').load("<?php echo base_url('/datechart'); ?>");
+                $('#tempchartline').load("<?php echo base_url('/tempchart'); ?>");
+                $('#tdschartline').load("<?php echo base_url('/tdschart'); ?>");
+                $('#phchartline').load("<?php echo base_url('/phchart'); ?>");
+            }, 1000);
+        </script>
     </div>
 </body>
 <footer class="text-center text-white" style="background-color: #02353c;">
