@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 
 <?php $this->renderSection('content'); ?>
-<div id="content" class="p-4 p-md-5 pt-5" style="background: rgba(67, 147, 66, .7);">
+<div id="content" class="p-4 p-md-5 pt-5" style="background: rgba(242,255,233, .7);">
 
   <div class="container" id="responsecontainer">
     <h2 class="mb-5">Realtime Data From Arduino</h2>

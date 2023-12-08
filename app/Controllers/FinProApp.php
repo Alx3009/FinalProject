@@ -34,7 +34,7 @@ class FinProApp extends BaseController
             'title' => 'homepage',
             'userInfo' => $this->profileModel->getProfile($sessionData['users']['email']),
             
-            'recordSensor' => $this->dataModel->getSensorData(),
+            // 'recordSensor' => $this->dataModel->getSensorData(),
 
             
         ];
@@ -72,35 +72,21 @@ class FinProApp extends BaseController
         echo view('sensor/temp', $data);
     }   
 
-    public function sendData($tds, $temperature)
+    public function sendData($email, $tds, $temperature)
     {
-        
-        
-        // $ppm = $this->request->getUri(3);
-        // $temperature = $this->request->getUri(4);
-        // // $ppm = $this->uri->segment(3);
-        // // $temperature = $this->uri->segment(4);
-        
         $sessionData = session('LoggedUserProfile');
+       
         $data = [
             'tds' => $tds,
             'temp' => $temperature,
-            'email' => $this->profileModel->getProfile($sessionData['users']['email'])
+            // 'email' => $this->profileModel->getProfile($sessionData['users']['email'])
+            'email' => $email
         ];
+        
         
         $this->dataModel->updateSensorData($data);
         $this->graphicModel->insertSensorData($data);
     }
-    // public function dateChart()
-    // {
-    //     $data = [
-    //         'title' => 'dateChart',
-    //         'recordSensor' => $this->graphicModel->getDate()
-    
-    //     ];
-
-    //     echo view('sensor/datechart', $data);
-    // } 
     public function tempChart()
     {
         $data = [

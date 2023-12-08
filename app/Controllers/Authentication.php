@@ -180,7 +180,7 @@ class Authentication extends BaseController
                 $session_data_profile = ['users' => $user_profile];
                 
                 $login_session = session()->set('LoggedUserProfile', $session_data_profile);
-
+                
                 return  redirect()->to('/homepage');
             }
         }

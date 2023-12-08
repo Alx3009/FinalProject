@@ -35,7 +35,11 @@
                     <a href="<?= base_url('/homepage'); ?>"><span class="fa fa-home mr-3"></span> Home</a>
                 </li>
                 <li class="active">
-                    <a href="<?= base_url('/content/profile'); ?>"><span class="fa fa-download mr-3 notif"></span> Profile</a>
+                    <a href="<?= base_url('/content/profile'); ?>"><span class="fa fa-download mr-3 notif"></span>Profile</a>
+                    <!-- <small class="d-flex align-items-center justify-content-center">5</small>  ini buat notif -->
+                </li>
+                <li class="active">
+                    <a href="<?= base_url('/content/article/hidroponic-article'); ?>"><span class="fa fa-download mr-3 notif"></span>Article</Article></a>
                     <!-- <small class="d-flex align-items-center justify-content-center">5</small>  ini buat notif -->
                 </li>
                 <li class="active">
