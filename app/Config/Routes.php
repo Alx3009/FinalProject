@@ -49,10 +49,12 @@ $routes->get('/content/article/hidroponic-article', 'Article::index');
 $routes->get('/content/article/ph-article', 'Article::phArticle');
 $routes->get('/content/article/ppm-article', 'Article::ppmArticle');
 $routes->get('/content/article/temp-article', 'Article::tempArticle');
+$routes->get('/content/article/ph-tds-table', 'Article::phtdsArticle');
 
 $routes->get('/content/updateprofile/(:segment)', 'Profile::updateProfile/$1');
 
 $routes->get('/sendData/(:segment)/(:segment)/(:segment)', 'FinProApp::sendData/$1/$2/$3');
+$routes->get('/sendDataPh/(:segment)/(:segment)', 'FinProApp::sendDataPh/$1/$2');
 $routes->post('/profile/saveUpdate', 'Profile::saveUpdate');
 
 // $routes->get('/authentication/sign_in', 'Authentication::index');

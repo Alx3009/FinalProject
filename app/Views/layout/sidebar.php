@@ -43,18 +43,6 @@
                     <!-- <small class="d-flex align-items-center justify-content-center">5</small>  ini buat notif -->
                 </li>
                 <li class="active">
-                    <a href="#"><span class="fa fa-gift mr-3"></span>Convert</a>
-                </li>
-                <!-- <li>
-                    <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa fa-cog mr-3"></span> Settings</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa fa-support mr-3"></span> Support</a>
-                </li> -->
-                <li class="active">
                     <a href="<?= base_url('authentication/logout') ?>"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
                 </li>
             </ul>
@@ -101,7 +89,7 @@
                 }, 1000);
             })
         </script>
-        <!-- ph chart line  -->
+        <!-- ph, tds, temp chart line  -->
         <script>
             var refreshid = setInterval(() => {
                 // $('#datechartline').load("<?php echo base_url('/datechart'); ?>");

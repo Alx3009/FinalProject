@@ -16,6 +16,7 @@ class FinProApp extends BaseController
     protected $profileModel;
     protected $dataModel;
     protected $graphicModel;
+    protected $graphicPhModel;
     // public $uri;
 
 
@@ -25,7 +26,7 @@ class FinProApp extends BaseController
         $this->profileModel = new \App\Models\ProfileModel();
         $this->dataModel = new \App\Models\DataModel();
         $this->graphicModel = new \App\Models\GraphicModel();
-        
+        $this->graphicPhModel = new \App\Models\GraphicPhModel();
     }
     public function index()
     {
@@ -87,6 +88,19 @@ class FinProApp extends BaseController
         $this->dataModel->updateSensorData($data);
         $this->graphicModel->insertSensorData($data);
     }
+    public function sendDataPh($email, $ph)
+    {
+        $sessionData = session('LoggedUserProfile');
+       
+        $data = [
+            'email' => $email,
+            'ph' => $ph
+        ];
+        
+        
+        $this->dataModel->updateSensorData($data);
+        $this->graphicPhModel->insertSensorData($data);
+    }
     public function tempChart()
     {
         $data = [
@@ -111,7 +125,7 @@ class FinProApp extends BaseController
     {
         $data = [
             'title' => 'phChart',
-            'recordSensor' => $this->graphicModel->getPh()
+            'recordSensor' => $this->graphicPhModel->getPh()
     
         ];
 

@@ -3,8 +3,11 @@
 <?= $this->section('content'); ?>
 
 <?php $this->renderSection('content'); ?>
-<div id="content" class="p-4 p-md-5 pt-5" style="background: rgba(242,255,233, .7);">
-
+<div
+  id="content"
+  class="p-4 p-md-5 pt-5"
+  style="background: rgba(242, 255, 233, 0.7)"
+>
   <div class="container" id="responsecontainer">
     <h2 class="mb-5">Realtime Data From Arduino</h2>
     <div class="row">
@@ -30,9 +33,6 @@
                   <span>&deg;C</span>
                 </div>
               </div>
-              <div class="col-auto">
-                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-              </div>
             </div>
           </div>
         </div>
@@ -55,9 +55,6 @@
                 <div class="h2 mb-0 font-weight-bold text-gray-800" id="ph">
                   <div id="phlevel"></div>
                 </div>
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-calendar fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
@@ -85,9 +82,6 @@
                   <span> ppm</span>
                 </div>
               </div>
-              <div class="col-auto">
-                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-              </div>
             </div>
           </div>
         </div>
@@ -95,11 +89,22 @@
       <div class="col-xl-8" id="tempchartline"></div>
       <div class="col-xl-4 mb-4">
         <div class="card">
-          <img src="/images/temperature.jpg" alt="" class="card-img-top">
+          <img src="/images/temperature.jpg" alt="" class="card-img-top" />
           <div class="card-body">
             <h5 class="card-title">Temperature</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
-            <a href="" class="btn btn-outline-success btn-sm">Read More</a>
+            <p class="card-text">
+              Water temperature significantly impacts plant growth and
+              development. It affects the rate of metabolic processes, oxygen
+              availability, and the activity of beneficial and harmful
+              microorganisms. Choosing the ideal temperature range, specific to
+              the plant species, promotes healthy root development, efficient
+              photosynthesis, and overall growth.
+            </p>
+            <a
+              href="<?= base_url('/content/article/temp-article'); ?>"
+              class="btn btn-outline-success btn-sm"
+              >Read More</a
+            >
             <!-- <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a> -->
           </div>
         </div>
@@ -107,11 +112,21 @@
 
       <div class="col-xl-4 mb-4">
         <div class="card">
-          <img src="/images/tds.jpg" alt="" class="card-img-top">
+          <img src="/images/tds.jpg" alt="" class="card-img-top" />
           <div class="card-body">
             <h5 class="card-title">Total Dissolved Solid</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
-            <a href="" class="btn btn-outline-success btn-sm">Read More</a>
+            <p class="card-text">
+              TDS indicates the total weight of all dissolved solids, including
+              essential nutrients like salts and minerals, as well as
+              potentially harmful contaminants. Maintaining a balanced TDS level
+              is critical for efficient nutrient uptake and preventing plant
+              stress.
+            </p>
+            <a
+              href="<?= base_url('/content/article/ppm-article'); ?>"
+              class="btn btn-outline-success btn-sm"
+              >Read More</a
+            >
             <!-- <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a> -->
           </div>
         </div>
@@ -121,11 +136,20 @@
       <div class="col-xl-8" id="phchartline"></div>
       <div class="col-xl-4 mb-4">
         <div class="card">
-          <img src="/images/ph.jpg" alt="" class="card-img-top">
+          <img src="/images/ph.jpg" alt="" class="card-img-top" />
           <div class="card-body">
             <h5 class="card-title">pH</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
-            <a href="" class="btn btn-outline-success btn-sm">Read More</a>
+            <p class="card-text">
+              pH measures the acidity or alkalinity of the solution, impacting
+              the availability of nutrients for plant absorption. A slightly
+              acidic environment (pH 5.5-6.5) is generally ideal for most
+              hydroponically grown crops.
+            </p>
+            <a
+              href="<?= base_url('/content/article/ph-article'); ?>"
+              class="btn btn-outline-success btn-sm"
+              >Read More</a
+            >
             <!-- <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a> -->
           </div>
         </div>
@@ -136,9 +160,7 @@
     <!-- chart line -->
     <!-- <div class="col-xl-8" id="tempchartline"></div>
     <div class="col-xl-4" id=""></div> -->
-    
   </div>
-
 </div>
 
 <?= $this->endSection(); ?>

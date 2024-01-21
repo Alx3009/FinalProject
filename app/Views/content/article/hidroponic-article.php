@@ -295,6 +295,7 @@
                     >
                   </li>
                   <li><a href="<?= base_url('/content/article/temp-article'); ?>">Temperature for Hidroponics</a></li>
+                  <li><a href="<?= base_url('/content/article/ph-tds-table'); ?>">Hydroponic Nutrient PPM & pH Guide</a></li>
                 </ul>
               </div>
               <!-- <div class="col-sm-6">

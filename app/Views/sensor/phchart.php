@@ -1,8 +1,6 @@
 
 <div class="panel panel-success">
-      <!-- <div class="panel heading">
-        Temperature Chart
-      </div> -->
+        <!-- Ph Chart -->
       <div class="panel body card shadow h-100 py-2">
         <!-- canvas for graphic -->
         <canvas id="phchart"></canvas>
@@ -11,7 +9,7 @@
         <script type="text/javascript">
             //read the id of the canvas
             var canvas = document.getElementById('phchart');
-            //date dan temp data for chart 
+            //date dan ph data for chart 
             var data = {
                 //sumbu x
                 labels : [

@@ -54,4 +54,14 @@ class Article extends BaseController
             
         echo view('content/article/temp-article', $data);
     }
+    public function phtdsArticle()
+    {   
+        $sessionData = session('LoggedUserProfile');
+        $data = [
+            'title' => 'profile',
+            'userInfo' => $this->profileModel->getProfile($sessionData['users']['email']),
+        ];
+            
+        echo view('content/article/ph-tds-table', $data);
+    }
 }

@@ -17,7 +17,7 @@ class GraphicModel extends Model
     // protected $useSoftDeletes = true;
 
     protected $allowedFields = [
-        'ph', 'tds', 'temp', 'date', 'email'
+        'tds', 'temp', 'date', 'email'
     ];
 
     // // Dates
@@ -77,7 +77,7 @@ class GraphicModel extends Model
         $data_id = mysqli_fetch_array($sql_id);
         
         $id_akhir = $data_id['MAX(ID)'];
-        $id_awal = $id_akhir - 4;
+        $id_awal = $id_akhir - 9;
 
         //read the 5 latest data from 'date' and 'temp' table
         $tanggal = mysqli_query($konek, "SELECT date FROM chart_sensor WHERE ID>='$id_awal' AND ID<='$id_akhir' ORDER BY ID ASC");
@@ -95,7 +95,7 @@ class GraphicModel extends Model
         $data_id = mysqli_fetch_array($sql_id);
         
         $id_akhir = $data_id['MAX(ID)'];
-        $id_awal = $id_akhir - 4;
+        $id_awal = $id_akhir - 9;
 
         //read the 5 latest data from 'date' and 'tds' table
         $tanggal = mysqli_query($konek, "SELECT date FROM chart_sensor WHERE ID>='$id_awal' AND ID<='$id_akhir' ORDER BY ID ASC");
@@ -103,23 +103,23 @@ class GraphicModel extends Model
 
         return ['date'=>$tanggal, 'tds'=>$tds];
     }
-    public function getPh()
-    {   
-        $konek = mysqli_connect("localhost", "root", "", "finalproject");
+    // public function getPh()
+    // {   
+    //     $konek = mysqli_connect("localhost", "root", "", "finalproject");
 
-        //read the highest ID 
-        $sql_id = mysqli_query($konek, "SELECT MAX(ID) FROM chart_sensor");
-        //catch the data
-        $data_id = mysqli_fetch_array($sql_id);
+    //     //read the highest ID 
+    //     $sql_id = mysqli_query($konek, "SELECT MAX(ID) FROM chart_sensor");
+    //     //catch the data
+    //     $data_id = mysqli_fetch_array($sql_id);
         
-        $id_akhir = $data_id['MAX(ID)'];
-        $id_awal = $id_akhir - 4;
+    //     $id_akhir = $data_id['MAX(ID)'];
+    //     $id_awal = $id_akhir - 4;
 
-        //read the 5 latest data from 'date' and 'tds' table
-        $tanggal = mysqli_query($konek, "SELECT date FROM chart_sensor WHERE ID>='$id_awal' AND ID<='$id_akhir' ORDER BY ID ASC");
-        $ph = mysqli_query($konek, "SELECT ph FROM chart_sensor WHERE ID>='$id_awal' AND ID<='$id_akhir' ORDER BY ID ASC");
+    //     //read the 5 latest data from 'date' and 'tds' table
+    //     $tanggal = mysqli_query($konek, "SELECT date FROM chart_sensor WHERE ID>='$id_awal' AND ID<='$id_akhir' ORDER BY ID ASC");
+    //     $ph = mysqli_query($konek, "SELECT ph FROM chart_sensor WHERE ID>='$id_awal' AND ID<='$id_akhir' ORDER BY ID ASC");
 
-        return ['date'=>$tanggal, 'ph'=>$ph];
-    }
+    //     return ['date'=>$tanggal, 'ph'=>$ph];
+    // }
     
 }
