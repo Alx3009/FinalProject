@@ -53,13 +53,13 @@ $routes->get('/content/article/ph-tds-table', 'Article::phtdsArticle');
 
 $routes->get('/content/updateprofile/(:segment)', 'Profile::updateProfile/$1');
 
-$routes->get('/sendData/(:segment)/(:segment)/(:segment)', 'FinProApp::sendData/$1/$2/$3');
-$routes->get('/sendDataPh/(:segment)/(:segment)', 'FinProApp::sendDataPh/$1/$2');
+$routes->get('/sendData/(:segment)/(:segment)', 'FinProApp::sendData/$1/$2');
+$routes->get('/sendDataPh/(:segment)', 'FinProApp::sendDataPh/$1');
 $routes->post('/profile/saveUpdate', 'Profile::saveUpdate');
 
 // $routes->get('/authentication/sign_in', 'Authentication::index');
 // $routes->get('/authentication/registration', 'Authentication::register');
-// $routes->post('/authentication/create', 'Authentication::create');
+$routes->post('/authentication/create', 'Authentication::create');
 // $routes->post('/authentication/check', 'Authentication::check');
 // $routes->get('/profile/(:segment)', 'Profile::updateProfile/$1');
 

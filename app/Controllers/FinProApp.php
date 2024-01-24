@@ -73,9 +73,10 @@ class FinProApp extends BaseController
         echo view('sensor/temp', $data);
     }   
 
-    public function sendData($email, $tds, $temperature)
+    public function sendData($tds, $temperature)
     {
         $sessionData = session('LoggedUserProfile');
+        $email = $sessionData['users']['email'];
        
         $data = [
             'tds' => $tds,
@@ -88,9 +89,10 @@ class FinProApp extends BaseController
         $this->dataModel->updateSensorData($data);
         $this->graphicModel->insertSensorData($data);
     }
-    public function sendDataPh($email, $ph)
+    public function sendDataPh($ph)
     {
         $sessionData = session('LoggedUserProfile');
+        $email = $sessionData['users']['email'];
        
         $data = [
             'email' => $email,

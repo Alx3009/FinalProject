@@ -11,6 +11,7 @@ use App\Libraries\Hash;
 class Authentication extends BaseController
 {
     protected $profileModel;
+    protected $dataModel;
     // protected $accModel;
 
     public function __construct()
@@ -21,6 +22,7 @@ class Authentication extends BaseController
 
         // $this->accModel = new \App\Models\AccModel();
         $this->profileModel = new \App\Models\ProfileModel();
+        $this->dataModel = new \App\Models\DataModel();
         // $this->profileModel = new \App\Models\AccModel();
     }
 
@@ -84,7 +86,7 @@ class Authentication extends BaseController
 
             return view('authentication/register', ['validation' => $this->validator]);
         } else {
-            //Register user in database
+            //Register user in profile database
             $name = $this->request->getPost('name');
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
@@ -99,8 +101,12 @@ class Authentication extends BaseController
             $github = '';
             $linkedin = '';
             $about = '';
+            //sensor database
+            $ph = '';
+            $tds = '';
+            $temp = '';
 
-            $values = [
+            $values1 = [
                 'name' => $name,
                 'email' => $email,
                 'password' => Hash::encrypt($password),
@@ -115,13 +121,22 @@ class Authentication extends BaseController
                 'wa' => $whatsapp,
                 'github' => $github,
                 'linkedin' => $linkedin,
-                'about' => $about
+                'about' => $about,
+            ];
+            $query = $this->profileModel->insert($values1);
+
+            $values2 = [
+                'email' => $email,
+                'ph' => $ph,
+                'tds' => $tds,
+                'temp' => $temp
             ];
 
 
             // $userModel = new UserModel();
             // $query = $this->accModel->insert($values);
-            $query = $this->profileModel->insert($values);
+            // $query = $this->profileModel->insert($values1);
+            $query = $this->dataModel->insert($values2);
             // $emailId = $this->accModel->getInsertID();
 
             // $dataprofile = [

@@ -68,12 +68,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-6 mt-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-                                                <label class="form-check-label" for="inlineFormCheck">Remember me</label>
-                                            </div>
-                                        </div>
+                                        
                                         <input type="hidden" class="form-control" name="photo" placeholder="" value="<?= set_value('photo') ?>">
                                         <input type="hidden" class="form-control" name="slug" placeholder="" value="<?= set_value('slug') ?>">
                                         <input type="hidden" class="form-control" name="birth" placeholder="" value="<?= set_value('birth') ?>">
