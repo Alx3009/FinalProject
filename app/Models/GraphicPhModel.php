@@ -20,6 +20,7 @@ class GraphicPhModel extends Model
         'ph',  'date', 'email'
     ];
 
+
     // // Dates
     protected $useTimestamps = true;
     // protected $dateFormat    = 'datetime';
@@ -43,7 +44,7 @@ class GraphicPhModel extends Model
     // protected $afterFind      = [];
     // protected $beforeDelete   = [];
     // protected $afterDelete    = [];
-    
+ 
     public function insertSensorData($data)
     {
         $builder = $this->db->table('phchart_sensor');
@@ -52,19 +53,21 @@ class GraphicPhModel extends Model
     
     public function getPh()
     {   
-        $konek = mysqli_connect("localhost", "root", "", "finalproject");
+        $sessionData = session('LoggedUserProfile');
+        $email = $sessionData['users']['email'];
 
+        $konek = mysqli_connect("localhost", "root", "", "finalproject");
         //read the highest ID 
-        $sql_id = mysqli_query($konek, "SELECT MAX(ID) FROM phchart_sensor");
+        $sql_id = mysqli_query($konek, "SELECT MAX(ID) FROM phchart_sensor WHERE email = '$email'");
         //catch the data
         $data_id = mysqli_fetch_array($sql_id);
         
         $id_akhir = $data_id['MAX(ID)'];
         $id_awal = $id_akhir - 9;
 
-        //read the 5 latest data from 'date' and 'tds' table
-        $tanggal = mysqli_query($konek, "SELECT date FROM phchart_sensor WHERE ID>='$id_awal' AND ID<='$id_akhir' ORDER BY ID ASC");
-        $ph = mysqli_query($konek, "SELECT ph FROM phchart_sensor WHERE ID>='$id_awal' AND ID<='$id_akhir' ORDER BY ID ASC");
+        //read the 5 latest data from ph table
+        $tanggal = mysqli_query($konek, "SELECT date FROM phchart_sensor WHERE ID>='$id_awal' AND ID<='$id_akhir' AND email='$email' ORDER BY ID ASC");
+        $ph = mysqli_query($konek, "SELECT ph FROM phchart_sensor WHERE ID>='$id_awal' AND ID<='$id_akhir' AND email='$email' ORDER BY ID ASC");
 
         return ['date'=>$tanggal, 'ph'=>$ph];
     }
