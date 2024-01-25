@@ -44,8 +44,12 @@ class DataModel extends Model
     // protected $afterDelete    = [];
     public function getSensorData()
     {
+        $sessionData = session('LoggedUserProfile');
+        $email = $sessionData['users']['email'];
+
         $builder = $this->db->table('data_sensor');
         $builder->select('*');
+        $builder->where('email', $email);
         $builder->orderBy('id', 'desc');
         $query = $builder->get();
     
@@ -66,13 +70,13 @@ class DataModel extends Model
         // $this->db->table('data_sensor')->where('email', $user)->update($data);
     }
 
-    public function userEmail($email)
-    {
-        // $sessionData = session('LoggedUserProfile');
-        // $user = $sessionData['users'][$email];
-        // Get the latest sensor data for the logged-in user.
-        return $this->db->table('data_sensor')->where('email', $email)->get()->getRow();
+    // public function userEmail($email)
+    // {
+    //     // $sessionData = session('LoggedUserProfile');
+    //     // $user = $sessionData['users'][$email];
+    //     // Get the latest sensor data for the logged-in user.
+    //     return $this->db->table('data_sensor')->where('email', $email)->get()->getRow();
         
-    }
+    // }
     
 }
