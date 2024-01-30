@@ -101,17 +101,12 @@ class Authentication extends BaseController
             $github = '';
             $linkedin = '';
             $about = '';
-            //sensor database
-            $ph = '';
-            $tds = '';
-            $temp = '';
 
             $values1 = [
                 'name' => $name,
                 'email' => $email,
                 'password' => Hash::encrypt($password),
                 'photo' => $photo,
-                // 'slug' => $slug,
                 'birth' => $birth,
                 'mobile' => $mobile,
                 'address' => $address,
@@ -127,24 +122,8 @@ class Authentication extends BaseController
 
             $values2 = [
                 'email' => $email,
-                'ph' => $ph,
-                'tds' => $tds,
-                'temp' => $temp
             ];
-
-
-            // $userModel = new UserModel();
-            // $query = $this->accModel->insert($values);
-            // $query = $this->profileModel->insert($values1);
             $query = $this->dataModel->insert($values2);
-            // $emailId = $this->accModel->getInsertID();
-
-            // $dataprofile = [
-            //     'name' = $this->request->getPost('name'),
-            //     'email' = $emailId,
-
-            // ];
-            // $this->profileModel->insert($dataprofile);
 
             if (!$query) {
                 return  redirect()->to('authentication/register')->with('fail', 'Something went wrong.');
@@ -179,12 +158,10 @@ class Authentication extends BaseController
         ]);
         if (!$validation) {
             return view('authentication/signin', ['validation' => $this->validator], $data);
-            // return  redirect()->to('authentication/signin')->with('validation', $this->validator)->withInput();
         } else {
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
 
-        
             $user_profile = $this->profileModel->where('email', $email)->first();
 
             $check_password = Hash::decrypt($password, $user_profile['password']);
@@ -194,7 +171,7 @@ class Authentication extends BaseController
                 
                 $session_data_profile = ['users' => $user_profile];
                 
-                $login_session = session()->set('LoggedUserProfile', $session_data_profile);
+                session()->set('LoggedUserProfile', $session_data_profile);
                 
                 return  redirect()->to('/homepage');
             }

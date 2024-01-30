@@ -58,25 +58,11 @@ class DataModel extends Model
 
     public function updateSensorData($data)
     {
-        // $sessionData = session('LoggedUserProfile');
-        // $user = $sessionData['users']['email'];
-        // $sensor_value = $_GET['sensor'];
         $builder = $this->db->table('data_sensor');
-        // $builder->where('email', $user);
-        $builder->update($data);
-        // $sessionData = session('LoggedUserProfile');
-        // $user = $sessionData['users']['email'];
-
-        // $this->db->table('data_sensor')->where('email', $user)->update($data);
+        $builder->set($data)->update();
+      
     }
 
-    // public function userEmail($email)
-    // {
-    //     // $sessionData = session('LoggedUserProfile');
-    //     // $user = $sessionData['users'][$email];
-    //     // Get the latest sensor data for the logged-in user.
-    //     return $this->db->table('data_sensor')->where('email', $email)->get()->getRow();
-        
-    // }
+  
     
 }

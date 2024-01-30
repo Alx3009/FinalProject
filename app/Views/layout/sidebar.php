@@ -80,9 +80,7 @@
         <script>
             $(document).ready(function(){
                 setInterval(() => {
-                //     location.reload();
-                // }, 2000)
-                //     $("#responsecontainer").empty(); // Clear previous content
+             
                     $("#phlevel").load("<?php echo base_url('/phvalue'); ?>");
                     $("#ppmlevel").load("<?php echo base_url('/ppmvalue'); ?>");
                     $("#templevel").load("<?php echo base_url('/tempvalue'); ?>");
@@ -92,7 +90,6 @@
         <!-- ph, tds, temp chart line  -->
         <script>
             var refreshid = setInterval(() => {
-                // $('#datechartline').load("<?php echo base_url('/datechart'); ?>");
                 $('#tempchartline').load("<?php echo base_url('/tempchart'); ?>");
                 $('#tdschartline').load("<?php echo base_url('/tdschart'); ?>");
                 $('#phchartline').load("<?php echo base_url('/phchart'); ?>");
