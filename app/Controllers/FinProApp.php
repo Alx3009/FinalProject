@@ -33,11 +33,7 @@ class FinProApp extends BaseController
         $sessionData = session('LoggedUserProfile');
         $data = [
             'title' => 'homepage',
-            'userInfo' => $this->profileModel->getProfile($sessionData['users']['email']),
-            
-            // 'recordSensor' => $this->dataModel->getSensorData(),
-
-            
+            'userInfo' => $this->profileModel->getProfile($sessionData['users']['email']),           
         ];
 
         echo view('content/homepage', $data);

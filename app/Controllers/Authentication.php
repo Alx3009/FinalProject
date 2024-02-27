@@ -45,9 +45,9 @@ class Authentication extends BaseController
     }
     public function create()
     {
-        $data = [
-            'title' => 'registration'
-        ];
+        // $data = [
+        //     'title' => 'registration'
+        // ];
 
         $validation = $this->validate([
             'name' => [

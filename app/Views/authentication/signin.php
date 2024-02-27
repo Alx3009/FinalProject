@@ -39,7 +39,6 @@
                       autocomplete="off"
                       class="row g-4"
                     >
-                      <?php $validation = \Config\Services::validation(); ?>
                       <?= csrf_field(); ?>
                       <?php if (!empty(session()->getFlashdata('fail'))) : ?>
                       <div class="alert alert-danger">

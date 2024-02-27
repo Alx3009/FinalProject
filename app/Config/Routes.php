@@ -64,19 +64,9 @@ $routes->post('/authentication/create', 'Authentication::create');
 // $routes->post('/authentication/check', 'Authentication::check');
 // $routes->get('/profile/(:segment)', 'Profile::updateProfile/$1');
 
-$routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
-    // $routes->get('/', 'FinProApp::index');
-});
 
-//authentication is the file inside the view
-$routes->group('authentication', static function ($routes) {
-    $routes->group('', ['filter' => 'AlreadyLoggedIn'], static function ($routes) {
-        // $routes->get('signin', 'Authentication::login', ['as' => 'signin']);
-        // $routes->get('register', 'Authentication::register', ['as' => 'register']);
-        // $routes->post('create', 'Authentication::create', ['as' => 'create']);
-        // $routes->post('check', 'Authentication::check', ['as' => 'check']);
-    });
-});
+
+
 
 /*
  * --------------------------------------------------------------------

@@ -1,7 +1,5 @@
 <div class="panel panel-success">
-  <!-- <div class="panel heading">
-        Temperature Chart
-      </div> -->
+ 
   <div class="panel body card shadow h-100 py-2">
     <!-- canvas for graphic -->
     <canvas id="tempchart"></canvas>
